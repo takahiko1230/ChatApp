@@ -9,6 +9,7 @@ namespace ClientForm
     class AppIF
     {
         private SocketServer socketserver;
+        private TimerAction timerAction;
         //コンストラクタ
         public AppIF()
         {
@@ -18,6 +19,8 @@ namespace ClientForm
         public bool Initialize()
         {
             socketserver = new SocketServer();
+            timerAction = new TimerAction();
+
             if (!socketserver.Initialize())
             {
                 return  false;
@@ -28,7 +31,32 @@ namespace ClientForm
                 return false;
             }
 
+            if (!timerAction.Initialize())
+            {
+                return false;
+            }
+            timerAction.Timer_.Elapsed += OnTimedEvent;
+
+
             return true;
+        }
+
+        public bool SendText(string text)
+        {
+            byte[] msg = Encoding.UTF8.GetBytes(text);
+            if (!socketserver.SendMessage(msg))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        //タイマーイベント
+        private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            
         }
     }
 }

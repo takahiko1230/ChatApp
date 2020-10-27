@@ -12,7 +12,7 @@ namespace ClientForm
     class SocketServer
     {
         //ソケット
-        private Socket sck;
+        private Socket socket;
         private IPEndPoint ipe;
         public SocketServer()
         {
@@ -29,7 +29,10 @@ namespace ClientForm
             IPAddress addre= IPAddress.Parse(address.Value);
 
             ipe = new IPEndPoint(addre,pot);
-            sck = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            socket = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+            //レシーブする際のタイムアウト値を設定
+            socket.ReceiveTimeout = 5000;
 
             return true;
         }
@@ -38,10 +41,23 @@ namespace ClientForm
         {
             try
             {
-                sck.Connect(ipe);
+                socket.Connect(ipe);
                 return true;
             }
             catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SendMessage(byte[] msg)
+        {
+            try
+            {
+                socket.Send(msg);
+                return true;
+            }
+            catch
             {
                 return false;
             }

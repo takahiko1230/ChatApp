@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.Send = new System.Windows.Forms.Button();
+            this.WriteText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -49,22 +50,26 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.Send);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.WriteText);
             this.splitContainer1.Size = new System.Drawing.Size(734, 450);
             this.splitContainer1.SplitterDistance = 291;
             this.splitContainer1.TabIndex = 0;
             // 
-            // textBox1
+            // button1
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(734, 149);
-            this.textBox1.TabIndex = 1;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(0, 108);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 43);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Send
             // 
+            this.Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Send.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Send.Location = new System.Drawing.Point(583, 102);
             this.Send.Name = "Send";
@@ -72,6 +77,18 @@
             this.Send.TabIndex = 2;
             this.Send.Text = "送信する";
             this.Send.UseVisualStyleBackColor = false;
+            this.Send.Click += new System.EventHandler(this.Send_Click);
+            // 
+            // WriteText
+            // 
+            this.WriteText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WriteText.Location = new System.Drawing.Point(0, 3);
+            this.WriteText.Multiline = true;
+            this.WriteText.Name = "WriteText";
+            this.WriteText.Size = new System.Drawing.Size(734, 149);
+            this.WriteText.TabIndex = 1;
             // 
             // Form1
             // 
@@ -95,7 +112,9 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button Send;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox WriteText;
+        private System.Windows.Forms.TextBox Word;
+        private System.Windows.Forms.Button button1;
     }
 }
 

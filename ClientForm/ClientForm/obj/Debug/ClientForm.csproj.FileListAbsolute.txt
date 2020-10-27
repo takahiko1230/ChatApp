@@ -8,3 +8,13 @@ C:\Users\takah\source\repos\ClientForm\ClientForm\obj\Debug\ClientForm.csproj.Ge
 C:\Users\takah\source\repos\ClientForm\ClientForm\obj\Debug\ClientForm.csproj.CoreCompileInputs.cache
 C:\Users\takah\source\repos\ClientForm\ClientForm\obj\Debug\ClientForm.exe
 C:\Users\takah\source\repos\ClientForm\ClientForm\obj\Debug\ClientForm.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\bin\Debug\ClientForm.exe.config
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\bin\Debug\ClientForm.exe
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\bin\Debug\ClientForm.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.csprojAssemblyReference.cache
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.Form1.resources
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.Properties.Resources.resources
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.csproj.GenerateResource.cache
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.csproj.CoreCompileInputs.cache
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.exe
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.pdb

@@ -20,21 +20,27 @@ namespace ClientForm
         }
         public bool Initialize()
         {
-            XDocument xml = XDocument.Load(System.IO.Directory.GetCurrentDirectory()+ "\\ClientForm.xml");
-            XElement socketserver = xml.Element("SocketServer");
-            var port = socketserver.Element("Port");
-            int pot = int.Parse(port.Value);
+            try
+            {
+                XDocument xml = XDocument.Load(System.IO.Directory.GetCurrentDirectory() + "\\ClientForm.xml");
+                XElement socketserver = xml.Element("SocketServer");
+                var port = socketserver.Element("Port");
+                int pot = int.Parse(port.Value);
 
-            var address= socketserver.Element("Address");
-            IPAddress addre= IPAddress.Parse(address.Value);
+                var address = socketserver.Element("Address");
+                IPAddress addre = IPAddress.Parse(address.Value);
 
-            ipe = new IPEndPoint(addre,pot);
-            socket = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                ipe = new IPEndPoint(addre, pot);
+                socket = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-            //レシーブする際のタイムアウト値を設定
-            socket.ReceiveTimeout = 5000;
+                //レシーブする際のタイムアウト値を設定
+                socket.ReceiveTimeout = 5000;
 
-            return true;
+                return true;
+            }catch(Exception e)
+            {
+                return false;
+            }
         }
 
         public bool Connect()

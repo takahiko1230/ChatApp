@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using LoggerClass;
 
 namespace ClientForm
 {
@@ -20,8 +21,12 @@ namespace ClientForm
         }
         public bool Initialize()
         {
+            string methodName = "Initialize()";
             try
             {
+
+                Logger.WriteLine("SocketServer"+methodName+"Start");
+
                 XDocument xml = XDocument.Load(System.IO.Directory.GetCurrentDirectory() + "\\ClientForm.xml");
                 XElement socketserver = xml.Element("SocketServer");
                 var port = socketserver.Element("Port");
@@ -39,12 +44,15 @@ namespace ClientForm
                 return true;
             }catch(Exception e)
             {
+                Logger.WriteLine("SocketServer" + methodName + "Error");
                 return false;
             }
         }
 
+        //ソケットのコネクト
         public bool Connect()
         {
+            string methodName = "Connect()";
             try
             {
                 socket.Connect(ipe);
@@ -52,12 +60,16 @@ namespace ClientForm
             }
             catch (Exception e)
             {
+                Logger.WriteLine("SocketServer" + methodName + "Error");
                 return false;
             }
         }
 
+
+        //メッセージをサーバーへ送信
         public bool SendMessage(byte[] msg)
         {
+            string methodName = "SendMessage()";
             try
             {
                 socket.Send(msg);
@@ -65,6 +77,7 @@ namespace ClientForm
             }
             catch
             {
+                Logger.WriteLine("SocketServer" + methodName + "Error");
                 return false;
             }
         }

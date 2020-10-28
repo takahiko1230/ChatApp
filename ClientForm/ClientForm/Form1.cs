@@ -7,34 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LoggerClass;
 
 namespace ClientForm
 {
     public partial class Form1 : Form
     {
         private AppIF appif;
-        //メッセージ数
-        private int messagecount = 1;
-        //どちらが送信したか
-        private bool messenger;
-        //縦方向の文字位置
-        int vertical = 27;
 
-        TextBox[] textBox;
+        //メッセージ数
+
+        //private int messagecount = 1;
+        ////どちらが送信したか
+        //private bool messenger;
+        ////縦方向の文字位置
+        //int vertical = 27;
+
+        //TextBox[] textBox;
 
         public Form1()
         {
             InitializeComponent();
-            textBox = new TextBox[100];
+            //textBox = new TextBox[100];
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Logger.Initialize();
+
             appif = new AppIF();
             if (!appif.Initialize())
             {
                 return;
             }
+
+            Logger.WriteLine("InitializeComplite");
         }
 
         private void Send_Click(object sender, EventArgs e)

@@ -18,3 +18,6 @@ C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Deb
 C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.csproj.CoreCompileInputs.cache
 C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.exe
 C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\bin\Debug\LoggerClass.dll
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\bin\Debug\LoggerClass.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ClientForm\ClientForm\obj\Debug\ClientForm.csproj.CopyComplete

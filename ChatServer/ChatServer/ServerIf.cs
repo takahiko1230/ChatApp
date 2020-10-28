@@ -36,6 +36,12 @@ namespace ChatServer
                 return false;
             }
 
+            //データベース接続クラスを初期化する
+            if (!connectDB.Initialize())
+            {
+                return false;
+            }
+
             return true;
         }
 

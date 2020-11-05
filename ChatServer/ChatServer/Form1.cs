@@ -14,15 +14,31 @@ namespace ChatServer
     {
         private ServerIf serverIf;
 
+        private TextBox text1;
+
+
+        public TextBox textbox1
+        {
+            set
+            { 
+                text1 = value; 
+            }
+            get
+            {
+                return text1;
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            text1 = textBox1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             serverIf = new ServerIf();
-            if (!serverIf.Initialilze())
+            if (!serverIf.Initialilze(this))
             {
                 return;
             }

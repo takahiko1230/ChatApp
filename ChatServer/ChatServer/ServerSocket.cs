@@ -116,9 +116,12 @@ namespace ChatServer
                 Accept();
                 return;
             }
-            int bytesRec = socket.Receive(bytes);
+            int bytesRec = client.Receive(bytes);
 
             string data1 = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
+            //文字を出力
+            gtb(data1);
 
             client.Close();
 

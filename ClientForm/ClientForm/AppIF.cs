@@ -26,15 +26,12 @@ namespace ClientForm
                 return  false;
             }
 
-            if (socketserver.Connect())
-            {
-                return false;
-            }
-
             if (!timerAction.Initialize())
             {
                 return false;
             }
+
+            //タイマーイベントをセット
             timerAction.Timer_.Elapsed += OnTimedEvent;
 
 
@@ -43,7 +40,18 @@ namespace ClientForm
 
         public bool SendText(string text)
         {
+            if (!socketserver.CreateSocket())
+            {
+                return false;
+            }
+
+            if (!socketserver.Connect())
+            {
+                return false;
+            }
+
             byte[] msg = Encoding.UTF8.GetBytes(text);
+
             if (!socketserver.SendMessage(msg))
             {
                 return false;
@@ -53,7 +61,7 @@ namespace ClientForm
         }
 
 
-        //タイマーイベント
+        //タイマーイベント（定期的にサーバーとつなげる）
         private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             

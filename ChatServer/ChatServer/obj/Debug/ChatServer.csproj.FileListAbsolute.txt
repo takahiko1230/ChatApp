@@ -8,3 +8,13 @@ C:\Users\takah\source\repos\ChatServer\ChatServer\obj\Debug\ChatServer.csproj.Ge
 C:\Users\takah\source\repos\ChatServer\ChatServer\obj\Debug\ChatServer.csproj.CoreCompileInputs.cache
 C:\Users\takah\source\repos\ChatServer\ChatServer\obj\Debug\ChatServer.exe
 C:\Users\takah\source\repos\ChatServer\ChatServer\obj\Debug\ChatServer.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\bin\Debug\ChatServer.exe.config
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\bin\Debug\ChatServer.exe
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\bin\Debug\ChatServer.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.Form1.resources
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.Properties.Resources.resources
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.csproj.GenerateResource.cache
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.csproj.CoreCompileInputs.cache
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.exe
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.pdb
+C:\Users\takah\OneDrive\ドキュメント\ChatApp\ChatServer\ChatServer\obj\Debug\ChatServer.csprojAssemblyReference.cache

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <SocketServer>
-	<Port>20000</Port>
+	<Port>50000</Port>
 	<Address>127.0.0.1</Address>
 </SocketServer>

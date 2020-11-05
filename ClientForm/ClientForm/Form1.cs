@@ -40,10 +40,27 @@ namespace ClientForm
         private void Send_Click(object sender, EventArgs e)
         {
             //テキストが入力されていないとき抜け出します
-            if (WriteText.Text == null)
+            if (WriteText.Text == "")
             {
+                Send.Enabled = true;
                 return;
             }
+
+            //ボタン押下できないようにする
+            Send.Enabled = false;
+
+            //おくれなかったとき
+            if (!appif.SendText(WriteText.Text))
+            {
+                WriteText.Clear();
+                Send.Enabled = true;
+                return;
+            }
+
+            //テキストを送ったら削除する。
+            WriteText.Clear();
+
+            Send.Enabled = true;
         }
 
         //public bool DisplayMessage(string word)

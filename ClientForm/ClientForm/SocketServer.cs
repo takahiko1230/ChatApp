@@ -31,17 +31,28 @@ namespace ClientForm
                 IPAddress addre = IPAddress.Parse(address.Value);
 
                 ipe = new IPEndPoint(addre, pot);
-                socket = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                //レシーブする際のタイムアウト値を設定
-                socket.ReceiveTimeout = 5000;
 
                 return true;
+
             }catch(Exception e)
             {
                 return false;
             }
         }
+
+        //ソケットを作成する。
+        public bool CreateSocket()
+        {
+            socket = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            //レシーブする際のタイムアウト値を設定
+            socket.ReceiveTimeout = 5000;
+
+            if (socket == null)
+            {
+                return false;
+            }
+            return true;
+        } 
 
         public bool Connect()
         {

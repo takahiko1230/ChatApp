@@ -10,13 +10,18 @@ namespace ClientForm
     {
         private SocketServer socketserver;
         private TimerAction timerAction;
+
+        private AppIF appif;
+
+        private Form1 f1;
+
         //コンストラクタ
         public AppIF()
         {
 
         }
 
-        public bool Initialize()
+        public bool Initialize(Form1 f1)
         {
             socketserver = new SocketServer();
             timerAction = new TimerAction();
@@ -34,6 +39,9 @@ namespace ClientForm
             //タイマーイベントをセット
             timerAction.Timer_.Elapsed += OnTimedEvent;
 
+            appif =this;
+
+            this.f1 = f1;
 
             return true;
         }
@@ -50,9 +58,7 @@ namespace ClientForm
                 return false;
             }
 
-            byte[] msg = Encoding.UTF8.GetBytes(text);
-
-            if (!socketserver.SendMessage(msg))
+            if (!socketserver.SendMessage(text))
             {
                 return false;
             }
@@ -62,9 +68,30 @@ namespace ClientForm
 
 
         //タイマーイベント（定期的にサーバーとつなげる）
-        private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            
+            if (!socketserver.CreateTimerSocket())
+            {
+                return;
+            }
+
+            if (!socketserver.TimerConnect())
+            {
+                return;
+            }
+
+            if (!socketserver.SendTimerMessage(f1,appif))
+            {
+                return ;
+            }
+        }
+
+        public void DisplayWord(TimerSender ts)
+        {
+            foreach(string word in ts.sendMsg)
+            {
+                f1.DisplayMessage(word, 0);
+            }
         }
     }
 }

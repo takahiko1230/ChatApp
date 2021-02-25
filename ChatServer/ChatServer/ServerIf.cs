@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChatServer
 {
-    public delegate void GetByter(string s);
+    public delegate void GetByter(string s,int i,int k);
     public delegate void Display(string m);
+    public delegate TimerSender GetData(int m);
     class ServerIf
     {
         private ServerSocket serverSocket;
@@ -23,6 +24,9 @@ namespace ChatServer
         {
             serverSocket = new ServerSocket();
             connectDB = new ConnectDB();
+            //デリゲート登録
+            GetByter gtb = GetByter;
+            GetData gtd = GetDatar;
 
             form1 = form;
 
@@ -32,10 +36,9 @@ namespace ChatServer
                 return false;
             }
 
-            GetByter gtb = getByter;
 
             //アクセプトしたときに返すメソッドをソケット側に定義
-            if (!serverSocket.AcceptMethod(gtb))
+            if (!serverSocket.AcceptMethod(gtb,gtd))
             {
                 return false;
             }
@@ -49,6 +52,7 @@ namespace ChatServer
             return true;
         }
 
+        //チャット受信用のソケット
         public bool StartServer()
         {
             if (!serverSocket.Bind())
@@ -68,15 +72,49 @@ namespace ChatServer
             return true;
         }
 
-        //DBへつなげる
-        public void getByter(string byter)
+        //定期的な受信用ソケット
+        public bool StartTimerServer()
         {
-            form1.Invoke(new Action<string>(this.DisplayWord), byter);
+            if (!serverSocket.TimerBind())
+            {
+                return false;
+            }
+
+            if (!serverSocket.TimerListen())
+            {
+                return false;
+            }
+
+            if (!serverSocket.TimerAccept())
+            {
+                return false;
+            }
+            return true;
+        }
+        //DBへつなげる
+        public void GetByter(string word,int id,int toid)
+        {
+            //データベースへ送る
+            if(!connectDB.AddDB(word, id, toid))
+            {
+                return;
+            }
+
+            form1.Invoke(new Action<string>(this.DisplayWord), word);
         }
 
         public void DisplayWord(string ss)
         {
             form1.textbox1.Text = ss;
+        }
+
+        public TimerSender GetDatar(int id)
+        {
+            List<string> list = connectDB.GetMsg(id);
+            TimerSender ts = new TimerSender();
+            ts.sendMsg = list;
+            
+            return ts;
         }
     }
 }

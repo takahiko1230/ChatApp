@@ -47,10 +47,16 @@ namespace ChatServer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (serverIf.StartServer())
+            if (!serverIf.StartServer())
             {
                 return;
             }
+            if (!serverIf.StartTimerServer())
+            {
+                return;
+            }
+
+            textBox2.Text = "起動中";
         }
     }
 }

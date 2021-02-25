@@ -15,10 +15,21 @@ namespace ClientForm
         private AppIF appif;
         //メッセージ数
         private int messagecount = 1;
-        //どちらが送信したか
-        private bool messenger;
         //縦方向の文字位置
-        int vertical = 27;
+        int vertical = 0;
+
+        private Form1 form1;
+        public Form1 FormOne
+        {
+            set
+            {
+                form1 = value;
+            }
+            get
+            {
+                return form1;
+            }
+        }
 
         TextBox[] textBox;
 
@@ -26,15 +37,17 @@ namespace ClientForm
         {
             InitializeComponent();
             textBox = new TextBox[100];
+            form1 = this;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             appif = new AppIF();
-            if (!appif.Initialize())
+            if (!(appif.Initialize(this)))
             {
                 return;
             }
+
         }
 
         private void Send_Click(object sender, EventArgs e)
@@ -57,55 +70,56 @@ namespace ClientForm
                 return;
             }
 
+            DisplayMessage(WriteText.Text, 1);
+
             //テキストを送ったら削除する。
             WriteText.Clear();
 
             Send.Enabled = true;
         }
 
-        //public bool DisplayMessage(string word)
-        //{
-        //    //限界文字数の時に行う操作（後回し）
-        //    if (messagecount == 100)
-        //    {
+        public bool DisplayMessage(string word ,int messenger)
+        {
+            //限界文字数の時に行う操作（後回し）
+            if (messagecount == 100)
+            {
 
-        //    }
-        //    //水平方向
-        //    int horizon = 51;
+            }
+            //水平方向
+            int horizon = 33;
 
-        //    if (messenger)
-        //    {
-        //        horizon = 558;
-        //        vertical += 16;
-        //    }
+            if (messenger == 1)
+            {
+                horizon = 200;
+            }
+            vertical += 27;
 
-        //    TextBox Word = new TextBox();
-        //    Controls.Add(Word);
-        //    splitContainer1.Panel1.Controls.Add(Word);
-        //    Word.Multiline = true;
-        //    Word.AutoSize = true;
-        //    Word.Location = new Point(horizon, vertical);
-        //    Word.Anchor = (AnchorStyles)Right;
-        //    Word.Name = "Word";
-        //    Word.AutoSize = true;
-        //    Word.TabIndex = 0;
-        //    Word.Anchor = AnchorStyles.Top;
-        //    Word.Anchor = AnchorStyles.Right;
-        //    Word.Text = word;
+            TextBox Word = new TextBox();
+            Controls.Add(Word);
+            splitContainer1.Panel1.Controls.Add(Word);
+            Word.Width = 100;
+            Word.Height = 20;
+            Word.Multiline = true;
+            Word.WordWrap = true;
+            Word.Location = new Point(horizon, vertical);
+            Word.Name = "Word";
+            Word.AutoSize = true;
+            Word.TabIndex = 0;
+            Word.ReadOnly = true;
+            Word.Text = word;
 
 
-        //    textBox[messagecount - 1] = Word;
-        //    //メッセージ数のカウント
-        //    messagecount += 1;
+            textBox[messagecount - 1] = Word;
+            //メッセージ数のカウント
+            messagecount += 1;
 
-        //    return true;
-        //}
+            return true;
+        }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    messenger = true;
-        //    DisplayMessage(WriteText.Text);
-        //    WriteText.Text = "";
-        //}
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DisplayMessage(WriteText.Text, 1);
+            
+        }
     }
 }

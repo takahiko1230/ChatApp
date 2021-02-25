@@ -33,8 +33,12 @@ namespace ClientForm
         {
             // Create a timer and set a two second interval.
             timer = new Timer();
-            timer.Interval = 1000;
-           return true;
+            timer.Interval = 5000;
+            // Have the timer fire repeated events (true is the default)
+            timer.AutoReset = true;
+            // Start the timer
+            timer.Enabled = true;
+            return true;
         }
     }
 }

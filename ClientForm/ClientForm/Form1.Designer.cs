@@ -39,6 +39,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -46,32 +47,36 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.Send);
             this.splitContainer1.Panel2.Controls.Add(this.WriteText);
             this.splitContainer1.Size = new System.Drawing.Size(734, 450);
-            this.splitContainer1.SplitterDistance = 291;
+            this.splitContainer1.SplitterDistance = 335;
             this.splitContainer1.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(0, 108);
+            this.button1.Location = new System.Drawing.Point(0, 60);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 43);
             this.button1.TabIndex = 3;
             this.button1.Text = "Test";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Send
             // 
             this.Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Send.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.Send.Location = new System.Drawing.Point(583, 102);
+            this.Send.Location = new System.Drawing.Point(579, 54);
             this.Send.Name = "Send";
             this.Send.Size = new System.Drawing.Size(150, 49);
             this.Send.TabIndex = 2;
@@ -85,9 +90,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WriteText.Location = new System.Drawing.Point(0, 3);
+            this.WriteText.MaxLength = 15;
             this.WriteText.Multiline = true;
             this.WriteText.Name = "WriteText";
-            this.WriteText.Size = new System.Drawing.Size(734, 149);
+            this.WriteText.Size = new System.Drawing.Size(730, 101);
             this.WriteText.TabIndex = 1;
             // 
             // Form1
@@ -95,8 +101,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(734, 450);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(760, 521);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -2,5 +2,8 @@
 
 <SocketServer>
 	<Port>50000</Port>
+	<TimerPort>60000</TimerPort>
 	<Address>127.0.0.1</Address>
+	<ID>010</ID>
+	<ToID>020</ToID>
 </SocketServer>
